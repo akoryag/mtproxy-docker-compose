@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 .DEFAULT_GOAL := help
 
 help:
@@ -22,7 +23,6 @@ start:
 		$(MAKE) fix; \
 		echo "Повторный запуск контейнера..."; \
 		(docker compose up -d || docker-compose up -d); \
-		./show-link.sh; \
 	}
 	@echo "Контейнер запущен"
 	@./show-link.sh
@@ -46,7 +46,7 @@ prepare:
 		rm -f get-docker.sh; \
 	}
 	@echo "Проверка Docker Compose..."
-	@(docker-compose --version || docker compose version) || { \
+	@(docker compose version || docker-compose --version) || { \
 		echo "Установка Docker Compose V2..."; \
 		apt remove --purge docker-compose-plugin docker-compose-v2 -y 2>/dev/null || true; \
 		apt update; \
