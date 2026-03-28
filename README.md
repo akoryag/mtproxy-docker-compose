@@ -47,3 +47,12 @@ make start
 ```bash
 docker-compose up -d
 ```
+После запуска контейнера, в терминале будет ссылка для подключения прокси
+Пример
+```
+tg://proxy?server=IP&port=443&secret=SECRET
+```
+Либо в ручном режиме, посмотреть через логи
+```
+docker compose logs
+```
