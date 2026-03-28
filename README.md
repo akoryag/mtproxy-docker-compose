@@ -26,6 +26,7 @@ make help
 
 ### 0. Подготовка
 ```bash
+apt update
 apt install make git -y
 git clone https://github.com/akoryag/mtproxy-docker-compose.git
 cd mtproxy-docker-compose
